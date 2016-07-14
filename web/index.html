@@ -3,18 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
     <title>Experience Curve</title>
 </head>
 <body>
 
-<div class="row container-fluid">
-    <div class="col-lg-12">
+<div class="container">
+    <div class="col-lg-12 title">
         <p class="h2 text-center">Experience Curve</p>
-        <p class="text-muted text-center">Described by a power law function sometimes referred to as Henderson's Law.</p>
+        <p class="text-muted text-center">Described by a power law function sometimes referred to as Henderson's
+            Law.</p>
+    </div>
+
+    <div class="col-lg-4 col-xs-6 controller">
+        <label for="start-price">Start Price - <span class="value">100</span></label>
+        <input id="start-price" type="range" min="100" max="1000" step="1" value="100">
+        <label for="elasticity">Elasticity - <span class="value">90</span>%</label>
+        <input id="elasticity" type="range" min="1" max="99.9" step="0.1" value="90">
+        <label for="scale">Scale (Linear / Log) - <span class="value">Log</span></label>
+        <input id="scale" type="range" min="0" max="1" step="1" value="1">
+    </div>
+
+    <div class='col-xs-6 col-lg-8'>
+        <h3>Graph</h3>
+        <div id='graphDiv'>
+        </div>
     </div>
 </div>
 
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
