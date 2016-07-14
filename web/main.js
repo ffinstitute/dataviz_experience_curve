@@ -10,12 +10,7 @@ var exp = function () {
         var startPrice = parseInt($('#start-price').val()),
             expo = Math.log2(parseFloat($('#elasticity').val()) / 100);
         var out = {
-            line1: [
-                {
-                    x: 0,
-                    y: startPrice
-                }
-            ]
+            line1: []
         };
 
         // Compute for graph
@@ -100,21 +95,46 @@ $(function () {
         var xScale, yScale, xAxis, yAxis, lineFunc;
 
         function calAxis() {
-            /* Calculate axis */
-            // Fit scale with data
-            xScale = d3.scaleLinear()
-                .domain([
-                    0, (parseInt(getMax(data0, 'x')))
-                ])
-                .range([0, w]);
-            yScale = d3.scaleLinear()
-                .domain([
-                    0, (parseFloat(getMax(data0, 'y'))).toFixed(2)])
-                .range([h, 0]);
+            var scale = parseInt($('.controller').find('input#scale').val()) ? 'log' : 'linear';
+            switch (scale) {
+                case 'linear':
+                    // Fit scale with data
+                    xScale = d3.scaleLinear()
+                        .domain([
+                            0, (parseInt(getMax(data0, 'x')))
+                        ])
+                        .range([0, w]);
+                    yScale = d3.scaleLinear()
+                        .domain([
+                            0, (parseFloat(getMax(data0, 'y'))).toFixed(2)])
+                        .range([h, 0]);
 
-            // create/update axes
-            xAxis = d3.axisBottom(xScale).ticks(10);
-            yAxis = d3.axisLeft(yScale).ticks(10);
+                    // create/update axes
+                    xAxis = d3.axisBottom(xScale).ticks(10);
+                    yAxis = d3.axisLeft(yScale).ticks(10);
+                    break;
+
+                case 'log':
+                    // Fit scale with data
+                    xScale = d3.scaleLog()
+                        .domain([
+                            1, (parseInt(getMax(data0, 'x')))
+                        ])
+                        .nice()
+                        .range([0, w]);
+                    yScale = d3.scaleLog()
+                        .domain([
+                            1, (parseFloat(getMax(data0, 'y'))).toFixed(2)])
+                        .nice()
+                        .range([h, 0]);
+
+                    // create/update axes
+                    xAxis = d3.axisBottom(xScale).ticks(10,d3.format(",.0f"));
+                    yAxis = d3.axisLeft(yScale).ticks(10,d3.format(",.0f"));
+                    break;
+            }
+            /* Calculate axis */
+
 
             // create a line function that can convert data[] into x and y points
             lineFunc = d3.line()
@@ -235,7 +255,7 @@ $(function () {
             // Add curve
             graph.select('g.lines')
                 .append("svg:path")
-                .attr("stroke", "#666")
+                .attr("stroke", "#000")
                 .attr("fill", 'none')
                 .attr("stroke-width", 1)
                 .attr("class", "line1 line")
@@ -270,6 +290,9 @@ $(function () {
 
 
         }
+        graph.selectAll(".axis")
+            .selectAll("line,path")
+            .attr('stroke', '#999');
 
         // Add the line by appending an svg:path element with the data line we created above
         // do this AFTER the axes above so that the line is above the tick-lines
