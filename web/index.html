@@ -16,12 +16,21 @@
     </div>
 
     <div class="col-lg-4 col-xs-6 controller">
-        <label for="start-price">Start Price - <span class="value">100</span></label>
-        <input id="start-price" type="range" min="100" max="1000" step="1" value="100">
-        <label for="elasticity">Elasticity - <span class="value">90</span>%</label>
-        <input id="elasticity" type="range" min="1" max="99.9" step="0.1" value="90">
-        <label for="scale">Scale - <span class="value">Linear</span></label>
-        <input id="scale" type="range" min="0" max="1" step="1" value="0">
+        <label for="start-price0">Line 1: Start Price - <span class="value">100</span></label>
+        <input id="start-price0" type="range" min="100" max="1000" step="1" value="100">
+        <label for="elasticity0">Line 1: Elasticity - <span class="value">85</span>%</label>
+        <input id="elasticity0" type="range" min="0.1" max="99.9" step="0.1" value="85">
+
+        <label for="start-price1">Line 2: Start Price - <span class="value">130</span></label>
+        <input id="start-price1" type="range" min="100" max="1000" step="1" value="130">
+        <label for="elasticity1">Line 2: Elasticity - <span class="value">80</span>%</label>
+        <input id="elasticity1" type="range" min="0.1" max="99.9" step="0.1" value="80">
+        <label for="scale">Scale</label>
+        <!--<input id="scale" type="range" min="0" max="1" step="1" value="0">-->
+        <div class="row col-lg-12 btn-group btn-toggle" id="scale" value="linear">
+            <button class="btn btn-default linear active" value="linear">Linear</button>
+            <button class="btn btn-default log" value="log">Log</button>
+        </div>
     </div>
 
     <div class='col-xs-6 col-lg-8'>

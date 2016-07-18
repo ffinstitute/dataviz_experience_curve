@@ -117,3 +117,16 @@ input[type=range]::-ms-fill-upper {
 input[type=range]:focus::-ms-fill-upper {
     background: #707070;
 }
+
+/** Switch button **/
+.btn-default.active {
+    color: #fff;
+    background: #7d7d7d;
+}
+.btn-default.active:hover,.btn-default.active:active,.btn-default.active:focus {
+    color: #eaeaea;
+    background: #9d9d9d;
+}
+button:focus {
+    outline: none !important;
+}
