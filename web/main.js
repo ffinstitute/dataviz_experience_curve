@@ -233,7 +233,7 @@ $(function () {
                     .attr('y',"5")
                     .attr("stroke", "black")
                     .attr("style", "stroke-width:1px;stroke:#aaa;fill:none;")
-                    .attr("width", "65")
+                    .attr("width", "70")
                     .attr("height", "35");
                 infoBox.append('rect')
                     .attr("x", "10")
@@ -258,7 +258,7 @@ $(function () {
                     .attr("y", "20")
                     .attr("id", "color1-text")
                     .attr("style", "font-size:12px;")
-                    .text('Line 1');
+                    .text('Curve 1');
 
                 infoBox.append('text')
                     .attr("fill", "black")
@@ -266,7 +266,7 @@ $(function () {
                     .attr("y", "35")
                     .attr("id", "color2-text")
                     .attr("style", "font-size:12px;")
-                    .text('Line 2');
+                    .text('Curve 2');
 
 
                 // Add curve0
@@ -310,7 +310,7 @@ $(function () {
                 graph.select(".x.label")
                     .attr("x", w)
                     .attr("y", h - 6);
-                // graph.select('.infoBox').attr("transform", "translate(" + (w - 210) + "," + 10 + ")");
+                graph.select('.infoBox').attr("transform", "translate(" + (w - 60) + "," + 10 + ")");
             }
             graph.selectAll(".axis")
                 .selectAll("line,path")
