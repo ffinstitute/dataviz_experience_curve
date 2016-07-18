@@ -122,6 +122,7 @@ $(function () {
 
             var xScale, yScale, xAxis, yAxis, lineFunc;
 
+            /* Calculate axis */
             function calAxis() {
                 var scale = $('#scale').attr('value');
                 switch (scale) {
@@ -134,7 +135,7 @@ $(function () {
                             .range([0, w]);
                         yScale = d3.scaleLinear()
                             .domain([
-                                0, (parseFloat(getMax(data, 'y'))).toFixed(2)])
+                                getMin(data, 'y'), (getMax(data, 'y'))])
                             .range([h, 0]);
 
                         // create/update axes
@@ -146,14 +147,12 @@ $(function () {
                         // Fit scale with data
                         xScale = d3.scaleLog()
                             .domain([
-                                1, (parseInt(getMax(data, 'x')))
+                                1, parseInt(getMax(data, 'x'))
                             ])
-                            .nice()
                             .range([0, w]);
                         yScale = d3.scaleLog()
                             .domain([
-                                1, (parseFloat(getMax(data, 'y'))).toFixed(2)])
-                            .nice()
+                                getMin(data, 'y'), getMax(data, 'y')])
                             .range([h, 0]);
 
                         // create/update axes
@@ -161,8 +160,6 @@ $(function () {
                         yAxis = d3.axisLeft(yScale).ticks(10, d3.format(",.0f"));
                         break;
                 }
-                /* Calculate axis */
-
 
                 // create a line function that can convert data[] into x and y points
                 lineFunc = d3.line()
@@ -230,7 +227,7 @@ $(function () {
                     .attr('class', 'infoBox')
                     .attr("transform", "translate(" + (w - 60) + "," + 10 + ")");
                 infoBox.append('rect')
-                    .attr('y',"5")
+                    .attr('y', "5")
                     .attr("stroke", "black")
                     .attr("style", "stroke-width:1px;stroke:#aaa;fill:none;")
                     .attr("width", "70")
@@ -274,7 +271,7 @@ $(function () {
                     .append("svg:path")
                     .attr("stroke", "#a55")
                     .attr("fill", 'none')
-                    .attr("stroke-width", 1)
+                    .attr("stroke-width", 2)
                     .attr("class", "line0 line")
                     .attr("d", lineFunc(data0));
 
@@ -283,7 +280,7 @@ $(function () {
                     .append("svg:path")
                     .attr("stroke", "#55a")
                     .attr("fill", 'none')
-                    .attr("stroke-width", 1)
+                    .attr("stroke-width", 2)
                     .attr("class", "line1 line")
                     .attr("d", lineFunc(data1));
 
@@ -308,8 +305,8 @@ $(function () {
 
                 // reposition label texts and hint box
                 graph.select(".x.label")
-                    .attr("x", w)
-                    .attr("y", h - 6);
+                    .attr("x", w + 2)
+                    .attr("y", h + 30);
                 graph.select('.infoBox').attr("transform", "translate(" + (w - 60) + "," + 10 + ")");
             }
             graph.selectAll(".axis")
@@ -321,7 +318,7 @@ $(function () {
             function getMax(data, key) {
                 var max = 0;
                 $(data).each(function () {
-                    max = (parseFloat(this[key]) > parseFloat(max)) ? this[key] : max;
+                    max = (parseFloat(this[key]) > parseFloat(max)) ? parseFloat(this[key]) : max;
                 });
                 return max
             }
@@ -329,7 +326,7 @@ $(function () {
             function getMin(data, key) {
                 var min = -1;
                 $(data).each(function () {
-                    min = (parseFloat(this[key]) < parseFloat(min)) ? this[key] : (min > -1 ? min : this[key]);
+                    min = (parseFloat(this[key]) < parseFloat(min)) ? parseFloat(this[key]) : (min > -1 ? min : parseFloat(this[key]));
                 });
                 return min
             }
