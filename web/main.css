@@ -104,6 +104,9 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 /** Switch button **/
+#scale {
+    margin-top: 10px;
+}
 .btn-default.active {
     color: #fff;
     background: #7d7d7d;
