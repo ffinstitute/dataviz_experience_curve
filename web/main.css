@@ -39,6 +39,38 @@ input[type=range]::-ms-thumb {
     cursor: pointer;
 }
 
+/** Curve 1 **/
+/* Special styling for WebKit/Blink */
+.slider-curve1 input[type=range]::-webkit-slider-thumb {
+    background: #944;
+}
+
+/* All the same stuff for Firefox */
+.slider-curve1 input[type=range]::-moz-range-thumb {
+    background: #944;
+}
+
+/* All the same stuff for IE */
+.slider-curve1 input[type=range]::-ms-thumb {
+    background: #944;
+}
+
+/** Curve 2 **/
+/* Special styling for WebKit/Blink */
+.slider-curve2 input[type=range]::-webkit-slider-thumb {
+    background: #449;
+}
+
+/* All the same stuff for Firefox */
+.slider-curve2 input[type=range]::-moz-range-thumb {
+    background: #449;
+}
+
+/* All the same stuff for IE */
+.slider-curve2 input[type=range]::-ms-thumb {
+    background: #449;
+}
+
 
 /***** track *****/
 input[type=range]::-webkit-slider-runnable-track {
@@ -94,9 +126,6 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 /** Switch button **/
-#scale {
-    margin-top: 10px;
-}
 
 .btn-default.active {
     color: #fff;

@@ -11,17 +11,17 @@ var exp = function () {
             startPrice1 = parseInt($('#start-price1').val()),
             expo1 = Math.log(parseFloat($('#elasticity1').val()) / 100) / Math.log(2);
         var out = {
-            line0: [],
-            line1: []
+            line1: [],
+            line2: []
         };
 
         // Compute for graph
-        for (var unit = 1; unit < max_unit; unit++) {
-            out.line0.push({
+        for (var unit = 1; unit <= max_unit; unit++) {
+            out.line1.push({
                 x: unit,
                 y: Math.pow(unit, expo0) * startPrice0
             });
-            out.line1.push({
+            out.line2.push({
                 x: unit,
                 y: Math.pow(unit, expo1) * startPrice1
             });
@@ -85,7 +85,6 @@ $(function () {
             if (!skipCompute) {
                 out = exp.compute();
             }
-            console.log('change', out);
 
             drawGraph(out);
 
@@ -110,8 +109,8 @@ $(function () {
         }
 
         function drawGraph(out) {
-            var data0 = out.line0,
-                data1 = out.line1,
+            var data0 = out.line1,
+                data1 = out.line2,
                 data = data0.concat(data1);
 
             var margin = 50; //px
@@ -129,12 +128,12 @@ $(function () {
                         // Fit scale with data
                         xScale = d3.scaleLinear()
                             .domain([
-                                0, (parseInt(getMax(data, 'x')))
+                                parseInt(getMin(data, 'x')), parseInt(getMax(data, 'x'))
                             ])
                             .range([0, w]);
                         yScale = d3.scaleLinear()
                             .domain([
-                                getMin(data, 'y'), (getMax(data, 'y'))])
+                                getMin(data, 'y'), getMax(data, 'y')])
                             .range([h, 0]);
 
                         // create/update axes
@@ -265,22 +264,22 @@ $(function () {
                     .text('Curve 2');
 
 
-                // Add curve0
+                // Add curve1
                 graph.select('g.lines')
                     .append("svg:path")
                     .attr("stroke", "#a55")
                     .attr("fill", 'none')
                     .attr("stroke-width", 2)
-                    .attr("class", "line0 line")
+                    .attr("class", "line1 line")
                     .attr("d", lineFunc(data0));
 
-                // Add curve1
+                // Add curve2
                 graph.select('g.lines')
                     .append("svg:path")
                     .attr("stroke", "#55a")
                     .attr("fill", 'none')
                     .attr("stroke-width", 2)
-                    .attr("class", "line1 line")
+                    .attr("class", "line2 line")
                     .attr("d", lineFunc(data1));
 
                 // Add lines
@@ -295,8 +294,8 @@ $(function () {
             } else {
                 graph = d3.select("#graphDiv");
                 graph.select('svg').attr("width", w + margin * 2);
-                graph.select('path.line0').attr("d", lineFunc(data0));
-                graph.select('path.line1').attr("d", lineFunc(data1));
+                graph.select('path.line1').attr("d", lineFunc(data0));
+                graph.select('path.line2').attr("d", lineFunc(data1));
 
                 // update axis
                 graph.select("g .x.axis").call(xAxis);

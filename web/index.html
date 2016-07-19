@@ -16,31 +16,30 @@
     </div>
 
     <div class="row col-lg-12 controller">
-        <div class="slider-group col-sm-6 col-xs-12">
+        <div class="slider-curve1 col-xs-6">
             <label for="start-price0">Curve 1: Start Price - <span class="value">100</span></label>
             <input id="start-price0" type="range" min="100" max="1000" step="1" value="100">
             <label for="elasticity0">Curve 1: Elasticity - <span class="value">85</span>%</label>
             <input id="elasticity0" type="range" min="0.1" max="99.9" step="0.1" value="85">
         </div>
-        <div class="slider-group col-sm-6 col-xs-12">
+        <div class="slider-curve2 col-xs-6">
             <label for="start-price1">Curve 2: Start Price - <span class="value">130</span></label>
             <input id="start-price1" type="range" min="100" max="1000" step="1" value="130">
             <label for="elasticity1">Curve 2: Elasticity - <span class="value">80</span>%</label>
             <input id="elasticity1" type="range" min="0.1" max="99.9" step="0.1" value="80">
         </div>
-        <div class="slider-gourp col-sm-12">
+        <div class="slider col-xs-12">
             <label for="max-unit">Number of Units - <span class="value">1000</span></label>
-            <input id="max-unit" type="range" min="1000" max="10000" step="1" value="1000">
-        </div>
-
-        <div class="col-lg-12 btn-group btn-toggle" id="scale" value="linear">
-            <button class="btn btn-default linear active" value="linear">Linear</button>
-            <button class="btn btn-default log" value="log">Log</button>
+            <input id="max-unit" type="range" min="2" max="10000" step="1" value="1000">
         </div>
     </div>
 
     <div class='col-xs-12 col-lg-12'>
         <div id='graphDiv'>
+        </div>
+        <div class="col-lg-12 btn-group btn-toggle" id="scale" value="linear">
+            <button class="btn btn-default linear active" value="linear">Linear</button>
+            <button class="btn btn-default log" value="log">Log</button>
         </div>
     </div>
 </div>
