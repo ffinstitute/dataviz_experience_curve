@@ -3,11 +3,10 @@
  */
 var exp = function () {
 
-    var max_unit = 1000;
-
     function compute() {
         // inputs //
-        var startPrice0 = parseInt($('#start-price0').val()),
+        var max_unit = parseInt($("#max-unit").val()),
+            startPrice0 = parseInt($('#start-price0').val()),
             expo0 = Math.log(parseFloat($('#elasticity0').val()) / 100) / Math.log(2),
             startPrice1 = parseInt($('#start-price1').val()),
             expo1 = Math.log(parseFloat($('#elasticity1').val()) / 100) / Math.log(2);
@@ -294,7 +293,7 @@ $(function () {
                  .attr("stroke", "#555").attr("stroke-width", "1").attr('class', 'y1 line').attr('stroke-dasharray', '10, 5')
                  .attr('vector-effect', "non-scaling-stroke");*/
             } else {
-                graph = d3.select("#graphDiv").transition().duration(200);
+                graph = d3.select("#graphDiv");
                 graph.select('svg').attr("width", w + margin * 2);
                 graph.select('path.line0').attr("d", lineFunc(data0));
                 graph.select('path.line1').attr("d", lineFunc(data1));

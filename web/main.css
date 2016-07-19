@@ -3,7 +3,6 @@ input[type=range] {
     width: 100%; /* Specific width is required for Firefox. */
     background: transparent; /* Otherwise white in Chrome */
     margin: 10px 0 20px 0;
-    padding: 0 5px;
 }
 
 input[type=range]:focus {
