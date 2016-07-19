@@ -8,9 +8,9 @@ var exp = function () {
     function compute() {
         // inputs //
         var startPrice0 = parseInt($('#start-price0').val()),
-            expo0 = Math.log2(parseFloat($('#elasticity0').val()) / 100),
+            expo0 = Math.log(parseFloat($('#elasticity0').val()) / 100) / Math.log(2),
             startPrice1 = parseInt($('#start-price1').val()),
-            expo1 = Math.log2(parseFloat($('#elasticity1').val()) / 100);
+            expo1 = Math.log(parseFloat($('#elasticity1').val()) / 100) / Math.log(2);
         var out = {
             line0: [],
             line1: []
@@ -45,7 +45,7 @@ $(function () {
         var zoom, out,
             controller = $('.controller');
 
-        controller.find('input').on('input', function (e) {
+        controller.find('input').on('input change', function (e) {
             var elem = e.target,
                 val;
             val = elem.value;

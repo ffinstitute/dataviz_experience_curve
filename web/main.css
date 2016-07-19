@@ -1,31 +1,16 @@
-.container {
-}
-
 input[type=range] {
     -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
     width: 100%; /* Specific width is required for Firefox. */
     background: transparent; /* Otherwise white in Chrome */
     margin: 10px 0 20px 0;
-}
-
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
+    padding: 0 5px;
 }
 
 input[type=range]:focus {
     outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
 }
 
-input[type=range]::-ms-track {
-    width: 100%;
-    cursor: pointer;
-
-    /* Hides the slider so custom styles can be added */
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-}
-
+/***** thumb *****/
 /* Special styling for WebKit/Blink */
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -55,6 +40,8 @@ input[type=range]::-ms-thumb {
     cursor: pointer;
 }
 
+
+/***** track *****/
 input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 8.4px;
@@ -64,7 +51,7 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #eee;
+    background: #ccc;
 }
 
 input[type=range]::-moz-range-track {
@@ -73,6 +60,10 @@ input[type=range]::-moz-range-track {
     cursor: pointer;
     background: #eee;
     border-radius: 1.3px;
+}
+
+input[type=range]:focus::-moz-range-track {
+    background: #ccc;
 }
 
 input[type=range]::-ms-track {
@@ -91,7 +82,7 @@ input[type=range]::-ms-fill-lower {
 }
 
 input[type=range]:focus::-ms-fill-lower {
-    background: #eee;
+    background: #ccc;
 }
 
 input[type=range]::-ms-fill-upper {
@@ -100,21 +91,24 @@ input[type=range]::-ms-fill-upper {
 }
 
 input[type=range]:focus::-ms-fill-upper {
-    background: #eee;
+    background: #ccc;
 }
 
 /** Switch button **/
 #scale {
     margin-top: 10px;
 }
+
 .btn-default.active {
     color: #fff;
     background: #7d7d7d;
 }
-.btn-default.active:hover,.btn-default.active:active,.btn-default.active:focus {
+
+.btn-default.active:hover, .btn-default.active:active, .btn-default.active:focus {
     color: #eaeaea;
     background: #9d9d9d;
 }
+
 button:focus {
     outline: none !important;
 }
