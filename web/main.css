@@ -2,7 +2,7 @@ input[type=range] {
     -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
     width: 100%; /* Specific width is required for Firefox. */
     background: transparent; /* Otherwise white in Chrome */
-    margin: 10px 0 20px 0;
+    margin: 5px 0 20px 0;
 }
 
 input[type=range]:focus {
@@ -14,7 +14,7 @@ input[type=range]:focus {
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 20px;
-    width: 16px;
+    width: 12px;
     border-radius: 3px;
     background: #555;
     cursor: pointer;
@@ -24,7 +24,7 @@ input[type=range]::-webkit-slider-thumb {
 /* All the same stuff for Firefox */
 input[type=range]::-moz-range-thumb {
     height: 20px;
-    width: 16px;
+    width: 12px;
     border-radius: 3px;
     background: #555;
     cursor: pointer;
@@ -33,7 +33,7 @@ input[type=range]::-moz-range-thumb {
 /* All the same stuff for IE */
 input[type=range]::-ms-thumb {
     height: 20px;
-    width: 16px;
+    width: 12px;
     border-radius: 3px;
     background: #555;
     cursor: pointer;
