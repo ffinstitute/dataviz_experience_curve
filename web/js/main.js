@@ -324,10 +324,8 @@ $(function () {
                 graph.select("g .y.axis").call(yAxis);
 
                 // reposition label texts and hint box
-                graph.select(".x.label")
-                    .attr("x", w + 2)
-                    .attr("y", h + 30);
-                graph.select('.infoBox').attr("transform", "translate(" + (w - 60) + "," + 10 + ")");
+                //graph.select(".x.label").attr("x", w + 2).attr("y", h + 30);
+                //graph.select('.infoBox').attr("transform", "translate(" + (w - 60) + "," + 10 + ")");
             }
             
             graph.selectAll(".axis")
