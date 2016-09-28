@@ -42,33 +42,33 @@ input[type=range]::-ms-thumb {
 /** Curve 1 **/
 /* Special styling for WebKit/Blink */
 .slider-curve1 input[type=range]::-webkit-slider-thumb {
-    background: #944;
+    background: #cc0000;
 }
 
 /* All the same stuff for Firefox */
 .slider-curve1 input[type=range]::-moz-range-thumb {
-    background: #944;
+    background: #cc0000;
 }
 
 /* All the same stuff for IE */
 .slider-curve1 input[type=range]::-ms-thumb {
-    background: #944;
+    background: #cc0000;
 }
 
 /** Curve 2 **/
 /* Special styling for WebKit/Blink */
 .slider-curve2 input[type=range]::-webkit-slider-thumb {
-    background: #449;
+    background: #4986DB;
 }
 
 /* All the same stuff for Firefox */
 .slider-curve2 input[type=range]::-moz-range-thumb {
-    background: #449;
+    background: #4986DB;
 }
 
 /* All the same stuff for IE */
 .slider-curve2 input[type=range]::-ms-thumb {
-    background: #449;
+    background: #4986DB;
 }
 
 
