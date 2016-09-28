@@ -207,6 +207,7 @@ $(function () {
 
                 graph.append("svg:g")
                     .attr('class', 'y axis')
+                    
                     .attr('transform', 'translate(0,0)')
                     .call(yAxis);
 
@@ -289,7 +290,7 @@ $(function () {
                 // Add curve1 (redish)
                 graph.select('g.lines')
                     .append("svg:path")
-                    .attr("stroke", "#a55")
+                    .attr("stroke", "#cc0000")
                     .attr("fill", 'none')
                     .attr("stroke-width", 2)
                     .attr("class", "line1 line")
@@ -298,7 +299,7 @@ $(function () {
                 // Add curve2 (blueish)
                 graph.select('g.lines')
                     .append("svg:path")
-                    .attr("stroke", "#55a")
+                    .attr("stroke", "#4986DB")
                     .attr("fill", 'none')
                     .attr("stroke-width", 2)
                     .attr("class", "line2 line")
@@ -314,6 +315,7 @@ $(function () {
                  .attr("stroke", "#555").attr("stroke-width", "1").attr('class', 'y1 line').attr('stroke-dasharray', '10, 5')
                  .attr('vector-effect', "non-scaling-stroke");*/
             } else {
+                
                 graph = d3.select("#graphDiv");
                 graph.select('svg').attr("width", w + margin * 2);
                 graph.select('path.line1').attr("d", lineFunc(data0));
@@ -328,9 +330,7 @@ $(function () {
                 //graph.select('.infoBox').attr("transform", "translate(" + (w - 60) + "," + 10 + ")");
             }
             
-            graph.selectAll(".axis")
-                .selectAll("line,path")
-                .attr('stroke', '#999');
+            graph.selectAll(".axis").selectAll("line,path").attr('stroke', '#999');
 
             // Add the line by appending an svg:path element with the data line we created above
             // do this AFTER the axes above so that the line is above the tick-lines
@@ -349,11 +349,6 @@ $(function () {
                 });
                 return min
             }
-
         }
-
-
     }
 );
-
-
