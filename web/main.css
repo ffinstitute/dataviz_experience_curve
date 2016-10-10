@@ -38,7 +38,9 @@ input[type=range]::-ms-thumb {
     background: #555;
     cursor: pointer;
 }
-
+span.value{
+    font-weight: bold;
+}
 /** Curve 1 **/
 /* Special styling for WebKit/Blink */
 .slider-curve1 input[type=range]::-webkit-slider-thumb {
@@ -139,4 +141,12 @@ input[type=range]:focus::-ms-fill-upper {
 
 button:focus {
     outline: none !important;
+}
+
+svg{
+    background-color: #ffffff;
+}
+
+label{
+    font-weight: 0!important;
 }
