@@ -1,6 +1,6 @@
 # Experience curve
 
-http://dataviz.ff.digital
+http://dataviz.ff.institute
 
 Interactive Visualization of Experience Curve Effects. 
 
